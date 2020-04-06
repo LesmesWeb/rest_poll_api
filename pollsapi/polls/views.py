@@ -11,6 +11,8 @@ def polls_list(request):
 			)
 		)
 	}
+
+
 	return JsonResponse(data)
 
 def polls_detail(request, pk):
@@ -24,3 +26,4 @@ def polls_detail(request, pk):
 		}
 	}
 	return JsonResponse(data)
+

@@ -48,4 +48,14 @@ http://localhost:8000/polls/1/
 
 Pudimos construir la API solo con Django, sin usar DRF, entonces, ¿por qué necesitamos DRF? Casi siempre necesitará tareas comunes con sus API, como control de acceso, serialización, limitación de velocidad y más.
 DRF proporciona un conjunto bien pensado de componentes básicos y puntos de conexión convenientes para construir API. 
- 
+
+## Capitulo 4 (usando DRF )
+
+DRF hace que el proceso de creación de API web sea simple y flexible. Con baterías incluidas, viene con un buen diseño.
+clases base que nos permiten serializar y deserializar datos.
+
+***Serialización***: Es el proceso de hacer una representación fluida de los datos que podemos transferir a través de la red. ***Deserialización*** es su proceso inverso.
+
+1. Cree un archivo llamado polls / serializers.py.
+
+
