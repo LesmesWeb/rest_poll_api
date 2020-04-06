@@ -1,5 +1,7 @@
-from django.urls import include, re_path
+from django.urls import path
+from .views import polls_list, polls_detail
 
 urlpatterns = [
-	re_path(r'^', include('polls.urls')),
+	path("polls/", polls_list, name="polls_list"),
+	path("polls/<int:pk>/", polls_detail, name="polls_detail")
 ]
