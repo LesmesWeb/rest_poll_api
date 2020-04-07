@@ -161,3 +161,19 @@ Vary: Accept
 
 ```
 
+## Capitulo 6 (Vistas y vistas genéricas)
+
+--- Hemos visto 4 formas de crear vistas de API hasta ahora:
+-- Vistas puras de Django (Pure Django views)
+-- APIView ***subclasses***
+-- generics. ***subclasses***
+-- viewsets.ModelViewSet
+
+--- Entonces, ¿cuál deberías usar cuando?
+
+--Use viewsets.ModelViewSet cuando vaya a permitir todas o la mayoría de las operaciones CRUD en un modelo.
+-- Use genéricos. * Cuando solo desea permitir algunas operaciones en un modelo
+-- Utilice APIView cuando desee personalizar completamente el comportamiento.
+
+Continuar
+https://readthedocs.org/projects/djangoapibook/downloads/pdf/latest/#page=13&zoom=100,0,96
