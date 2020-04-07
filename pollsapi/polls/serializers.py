@@ -20,6 +20,3 @@ class PollSerializer(serializers.ModelSerializer):
 		model = Poll
 		fields = '__all__'
 
-
-
-#update

@@ -57,5 +57,107 @@ clases base que nos permiten serializar y deserializar datos.
 ***Serialización***: Es el proceso de hacer una representación fluida de los datos que podemos transferir a través de la red. ***Deserialización*** es su proceso inverso.
 
 1. Cree un archivo llamado polls / serializers.py.
+2. De esta manera se puede usar el Serializer para crear y actualizar
 
+```sh
+from polls.serializers import PollSerializer
+from polls.models import Poll
+
+#Use el serializador para crear un objeto de encuesta
+poll_serializer = PollSerializer(data={"question": "Mojito or Caipirinha?","created_by": 1})
+poll_serializer.is_valid()
+#Out[4]: True
+poll = poll_serializer.save()
+poll.pk #In [6]:
+
+
+# También puede usar el serializador para actualizar un Encuesta objeto.
+
+poll_serializer = PollSerializer(instance=poll, data={"question": "Mojito,Caipirinha or margarita?", "created_by": 1})
+poll_serializer.is_valid()
+#True
+poll_serializer.save()
+#Out Poll: Mojito, Caipirinha or margarita?
+print(Poll.objects.get(pk=4).question)
+#'Mojito, Caipirinha or margarita?'
+
+```
+
+## Capitulo 5 (Vistas y vistas genéricas)
+
+-- Crear ***polls/apiviews.py*** para visualizar de manera grafica django rest:  polls/apiviews.py
+
+-- funciones 
+
+-crear Poll
+-
+
+
+
+Postman: ***OPTIONS***:http://localhost:8000/polls/ 
+```sh
+{
+    "name": "Poll List",
+    "description": "",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ]
+}
+
+```
+Postman: ***GET***: http://localhost:8000/polls/1
+
+```sh
+{
+    "id": 1,
+    "choices": [
+        {
+            "id": 1,
+            "votes": [],
+            "choice_text": "Si",
+            "poll": 1
+        },
+        {
+            "id": 2,
+            "votes": [],
+            "choice_text": "No",
+            "poll": 1
+        }
+    ],
+    "question": "¿Te gustaria aprender JavaScript?",
+    "pub_date": "2020-04-06T17:11:00.312112Z",
+    "created_by": 1
+}
+```
+
+
+Postman: ***GET***:http://localhost:8000/choices/ 
+```sh
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+[
+    {
+        "id": 1,
+        "votes": [],
+        "choice_text": "Si",
+        "poll": 1
+    },
+    {
+        "id": 2,
+        "votes": [],
+        "choice_text": "No",
+        "poll": 1
+    }
+]
+
+```
 
